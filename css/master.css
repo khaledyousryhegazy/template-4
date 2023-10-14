@@ -1,0 +1,1479 @@
+/*start variables */
+:root {
+  --blue: #0075ff;
+  --blue-alt: #0d69d5;
+  --orange: #f59e0b;
+  --green: #22c55e;
+  --red: #f44336;
+  --grey: #888;
+  --dark: #555;
+  --main-transition: 0.3s;
+}
+/*=================================================== end variables ===================================================*/
+/* start global */
+::-webkit-scrollbar {
+  width: 15px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--blue);
+}
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+}
+*::before,
+*::after {
+  transition: 0.3s;
+}
+*:focus {
+  outline: none;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+}
+.page {
+  min-height: 100vh;
+  background-color: #f1f5f9;
+}
+/*=================================================== end global ===================================================*/
+/* start sidebar */
+.side-bar {
+  width: 250px;
+  height: auto;
+  background-color: #fff;
+  position: relative;
+  padding: 20px;
+  box-shadow: 0 0 10px 0 #ddd;
+}
+.side-bar h3 {
+  position: relative;
+  width: 100%;
+  padding: 15px 0;
+  margin: 20px 0;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+}
+.side-bar h3::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: var(--dark);
+}
+.side-bar h3::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--dark);
+  width: 12px;
+  height: 12px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+}
+
+.side-bar ul li {
+  margin-bottom: 10px;
+}
+.side-bar ul li a {
+  display: flex;
+  position: relative;
+  width: 100%;
+  padding: 10px;
+  color: var(--dark);
+  border-radius: 7px;
+  z-index: 5;
+}
+.side-bar ul li a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 50%;
+  width: 0;
+  background: #eee;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  z-index: -1;
+}
+.side-bar ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 50%;
+  width: 0;
+  background: #eee;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  z-index: -1;
+}
+
+.side-bar ul li a span {
+  margin-left: 30px;
+  font-weight: 600;
+}
+.side-bar ul li a:hover::before {
+  width: 100%;
+}
+.side-bar ul li a:hover::after {
+  width: 100%;
+}
+.side-bar ul li a.active {
+  background-color: #eee;
+}
+/*=================================================== end side-bar ===================================================*/
+/* start header */
+.header {
+  height: 70px;
+  width: 100%;
+  background: #fff;
+  justify-content: space-between;
+  align-items: center;
+}
+.header .search input {
+  padding: 10px;
+  width: 150px;
+  font-size: 14px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  transition: var(--main-transition);
+}
+.header .search input:focus {
+  width: 185px;
+}
+.header .icons {
+  align-items: center;
+}
+.header .icons span {
+  position: relative;
+  font-size: 18px;
+  font-weight: 600;
+}
+.header .icons span::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  top: -1px;
+  right: -3px;
+  background: red;
+  border-radius: 50%;
+}
+.header .icons img {
+  width: 30px;
+  margin-left: 5px;
+}
+/*=================================================== end header ===================================================*/
+/* start title  */
+.page > .content {
+  width: 100%;
+  overflow: hidden;
+}
+.page .content > h2 {
+  padding: 20px 5px;
+  margin: 0 0 20px 20px;
+  width: fit-content;
+  position: relative;
+  z-index: 5;
+}
+.page .content > h2::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  width: 28px;
+  height: 75%;
+  background: #eee;
+  z-index: -1;
+  border-radius: 7px;
+}
+.page .content > h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 28px;
+  height: 3px;
+  background: #000;
+  z-index: -1;
+  border-radius: 7px;
+}
+.page .content > h2:hover::after {
+  width: 100%;
+}
+.page .content > h2:hover::before {
+  width: 100%;
+}
+/*=================================================== end title ===================================================*/
+/* start welcome */
+.container {
+  margin: 0 20px 20px;
+}
+.container > .welcome {
+  position: relative;
+  background-color: white;
+  overflow: hidden;
+}
+.container > .welcome > .head {
+  justify-content: space-between;
+  align-items: center;
+}
+.container > .welcome > .head > img {
+  max-width: 200px;
+}
+.container > .welcome > .head > .txt p {
+  opacity: 0.7;
+}
+.container > .welcome > img {
+  max-width: 80px;
+  border-radius: 50%;
+  border: 5px solid #f1f5f9;
+  margin-left: 20px;
+  margin-top: -32px;
+}
+.container > .welcome > .body {
+  margin: 20px 0 0;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 35px 0;
+}
+.container > .welcome .body div {
+  margin: 10px 0;
+  flex: 1;
+  text-align: center;
+}
+.container > .welcome .body div h3 {
+  margin: 0;
+  margin-bottom: 10px;
+  font-size: 17px;
+}
+.container > .welcome .body div p {
+  margin: 0;
+  margin-top: 10px;
+  opacity: 0.7;
+  font-size: 15px;
+}
+/*=================================================== end welcome ===================================================*/
+/* start quick-draft */
+.quick-draft p {
+  opacity: 0.7;
+}
+.quick-draft input {
+  margin-bottom: 20px;
+  padding: 10px;
+}
+.quick-draft textarea {
+  padding: 10px;
+  resize: none;
+}
+.quick-draft input,
+.quick-draft textarea {
+  font-size: 13px;
+  border: 1px solid #ddd;
+}
+/*=================================================== end quick-draft ===================================================*/
+/* start yearly-targets */
+.yearly-targets h3 {
+  margin-bottom: 10px;
+}
+.yearly-targets > div > i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  width: 80px;
+  height: 80px;
+  color: white;
+  margin-right: 20px;
+}
+.yearly-targets > .blue > i {
+  background-color: rgb(0 117 255 / 20%);
+  color: var(--blue);
+}
+.yearly-targets > .orange > i {
+  background-color: rgb(245 158 11 / 20%);
+  color: var(--orange);
+}
+.yearly-targets > .green > i {
+  background-color: rgb(34 197 94 / 20%);
+  color: var(--green);
+}
+
+.yearly-targets > div {
+  margin: 20px 0;
+}
+
+.yearly-targets > div > .details > .percent {
+  height: 3px;
+  background: var(--blue);
+  position: relative;
+}
+
+.yearly-targets > .blue > .details > .percent {
+  background-color: rgb(0 117 255 / 20%);
+  color: var(--blue);
+}
+.yearly-targets > .orange > .details > .percent {
+  background-color: rgb(245 158 11 / 20%);
+  color: var(--orange);
+}
+.yearly-targets > .green > .details > .percent {
+  background-color: rgb(34 197 94 / 20%);
+  color: var(--green);
+}
+.yearly-targets > div > .details > .percent > span:first-child {
+  display: block;
+  height: 100%;
+  border-radius: 12px;
+}
+.yearly-targets > .blue > .details > .percent > span:first-child {
+  background-color: var(--blue);
+  width: 70%;
+}
+.yearly-targets > .orange > .details > .percent > span:first-child {
+  background-color: var(--orange);
+  width: 85%;
+}
+.yearly-targets > .green > .details > .percent > span:first-child {
+  background-color: var(--green);
+  width: 20%;
+}
+.yearly-targets > div > .details > .percent > .num {
+  font-size: 13px;
+  font-weight: bold;
+  color: white;
+  border-radius: 4px;
+  padding: 2px;
+  position: absolute;
+  top: -30px;
+}
+.yearly-targets > .blue > .details > .percent > .num {
+  background-color: var(--blue);
+  left: 67%;
+}
+.yearly-targets > .orange > .details > .percent > .num {
+  background-color: var(--orange);
+  left: 82%;
+}
+.yearly-targets > .green > .details > .percent > .num {
+  background-color: var(--green);
+  left: 17%;
+}
+.yearly-targets > div > .details > .percent > .num::before {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0px;
+  border: 5px solid;
+}
+.yearly-targets > .blue > .details > .percent > .num::before {
+  border-color: var(--blue) transparent transparent transparent;
+}
+.yearly-targets > .orange > .details > .percent > .num::before {
+  border-color: var(--orange) transparent transparent transparent;
+}
+.yearly-targets > .green > .details > .percent > .num::before {
+  border-color: var(--green) transparent transparent transparent;
+}
+/*=================================================== end yearly-targets ===================================================*/
+/* start tickets  */
+.tickets > .boxes > .box {
+  border: 1px solid #ddd;
+  flex-direction: column;
+  padding: 15px;
+}
+.tickets > .boxes > .box > i {
+  font-size: 25px;
+}
+.tickets > .boxes > .box:nth-child(1) > i {
+  color: var(--orange);
+}
+.tickets > .boxes > .box:nth-child(2) > i {
+  color: var(--blue-alt);
+}
+.tickets > .boxes > .box:nth-child(3) > i {
+  color: var(--green);
+}
+.tickets > .boxes > .box:nth-child(4) > i {
+  color: var(--red);
+}
+.tickets > .boxes > .box > p {
+  margin: 0;
+  font-size: 14px;
+}
+.tickets > .boxes > .box > h3 {
+  margin: 20px 0;
+  font-size: 23px;
+}
+/*=================================================== end tickets ===================================================*/
+/* start latest-new  */
+.latest-new > h2 {
+  margin: 20px 0;
+}
+.latest-new > .box {
+  margin-bottom: 10px;
+  padding: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+.latest-new > .box:not(:last-child) {
+  border-bottom: 1px solid #ddd;
+}
+.latest-new > .box > .details > img {
+  height: 50px;
+  border-radius: 7px;
+  margin-right: 10px;
+}
+.latest-new > .box > .details h3 {
+  font-size: 17px;
+}
+.latest-new > .box > .details p {
+  font-size: 13px;
+}
+/*=================================================== end latest-new ===================================================*/
+/* start tasks */
+.tasks > h2 {
+  margin: 20px 0;
+}
+.tasks > .line {
+  justify-content: space-between;
+  padding: 10px 0;
+}
+.tasks > .line:not(:last-child) {
+  border-bottom: 1px solid #ddd;
+}
+.tasks > .line > .info > h3 {
+  font-size: 17px;
+}
+.tasks > .line > .info > p {
+  font-size: 15px;
+  opacity: 0.7;
+  margin: 8px 0;
+}
+.tasks > .line:nth-child(4) > .info > h3,
+.tasks > .line:nth-child(4) > .info > p {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+.tasks > .line:nth-child(4) > i {
+  opacity: 0.5;
+}
+/*=================================================== end tasks ===================================================*/
+/* start top-search */
+.top-search > .titles {
+  justify-content: space-between;
+  margin: 10px 0;
+}
+.top-search > .line {
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+.top-search > .line span {
+  font-weight: bold;
+  font-size: 15px;
+}
+.top-search > .line h4 {
+  font-weight: 600;
+}
+/*=================================================== end top-search ===================================================*/
+/* start latest-upload */
+.latest-upload > .line {
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.latest-upload > .line > span {
+  font-weight: bold;
+}
+.latest-upload > .line > .left > img {
+  max-width: 40px;
+  margin-right: 10px;
+}
+.latest-upload > .line > .left > .details {
+  width: 200px;
+}
+.latest-upload > .line > .left > .details h4 {
+  font-size: 15px;
+  font-weight: 600;
+}
+.latest-upload > .line > .left > .details p {
+  opacity: 0.7;
+  font-size: 15px;
+  margin: 0;
+  margin-top: 8px;
+}
+/*=================================================== end latest-upload ===================================================*/
+/* start latest-projects */
+.latest-projects > img {
+  max-width: 160px;
+  opacity: 0.2;
+  position: absolute;
+  bottom: 0px;
+  right: 20px;
+}
+.latest-projects ul::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 2px;
+  background: var(--blue);
+}
+.latest-projects ul > li {
+  margin: 0 0 30px 30px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.latest-projects ul > li::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: white;
+  border: 2px solid white;
+  outline: 2px solid var(--blue);
+  left: -10px;
+}
+.latest-projects ul > li.done::before {
+  background-color: var(--blue);
+}
+.latest-projects ul > li.still::before {
+  animation: still 0.7s linear infinite alternate;
+}
+/* animation */
+@keyframes still {
+  from {
+    background-color: white;
+  }
+  to {
+    background-color: var(--blue);
+  }
+}
+/*=================================================== end latest-projects ===================================================*/
+/* start reminders */
+.reminders > .line > span {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+.reminders > .line {
+  margin-bottom: 20px;
+}
+.reminders > .line > .details {
+  border-left: 3px solid red;
+  padding-left: 20px;
+}
+.reminders > .line > .details > h4 {
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+.reminders > .line:nth-child(2) > span {
+  background-color: var(--blue);
+}
+.reminders > .line:nth-child(3) > span {
+  background-color: var(--green);
+}
+.reminders > .line:nth-child(4) > span {
+  background-color: var(--orange);
+}
+.reminders > .line:nth-child(5) > span {
+  background-color: red;
+}
+.reminders > .line:nth-child(2) > .details {
+  border-color: var(--blue);
+}
+.reminders > .line:nth-child(3) > .details {
+  border-color: var(--green);
+}
+.reminders > .line:nth-child(4) > .details {
+  border-color: var(--orange);
+}
+/*=================================================== end reminders ===================================================*/
+/* start Latest Post */
+.latest-post > .head > img {
+  height: 50px;
+}
+.latest-post > .head > .details {
+  margin-left: 20px;
+}
+.latest-post > .head > .details p {
+  margin-top: 10px;
+}
+.latest-post > p {
+  line-height: 1.7;
+  font-weight: 500;
+  font-size: 15px;
+  padding: 20px 0;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+.latest-post > .foot {
+  padding: 12px 0;
+}
+/*=================================================== end latest post ===================================================*/
+/* start social-media */
+.social-media > .line:nth-child(2) {
+  background-color: #0077ff42;
+}
+.social-media > .line:nth-child(3) {
+  background-color: #0d6ad542;
+}
+.social-media > .line:nth-child(4) {
+  background-color: rgba(255, 0, 0, 0.42);
+}
+.social-media > .line:nth-child(5) {
+  background-color: #0059be42;
+}
+
+.social-media > .line:nth-child(2) > .left i {
+  background-color: #0075ff;
+}
+.social-media > .line:nth-child(3) > .left i {
+  background-color: #0d6ad5;
+}
+.social-media > .line:nth-child(4) > .left i {
+  background-color: rgb(255, 0, 0);
+}
+.social-media > .line:nth-child(5) > .left i {
+  background-color: #0059be;
+}
+.social-media > .line > .left i {
+  width: 50px;
+  height: 50px;
+  background-color: #0075ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 25px;
+}
+.social-media > .line > .left p {
+  margin-left: 10px;
+  font-weight: 600;
+}
+
+.social-media > .line:nth-child(2) > .left p {
+  color: #0075ff;
+}
+.social-media > .line:nth-child(3) > .left p {
+  color: #0d6ad5;
+}
+.social-media > .line:nth-child(4) > .left p {
+  color: rgb(255, 0, 0);
+}
+.social-media > .line:nth-child(5) > .left p {
+  color: #0059be;
+}
+
+.social-media > .line > span {
+  margin-right: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 11px;
+}
+.social-media > .line:nth-child(2) > span {
+  background-color: #0077ff;
+}
+.social-media > .line:nth-child(3) > span {
+  background-color: #0d6ad5;
+}
+.social-media > .line:nth-child(4) > span {
+  background-color: rgb(255, 0, 0);
+}
+.social-media > .line:nth-child(5) > span {
+  background-color: #0059be;
+}
+/*=================================================== end social-media ===================================================*/
+/* start projects*/
+.projects {
+  margin: 20px;
+}
+.projects .responsive-table {
+  overflow-x: auto;
+}
+.projects h2 {
+  margin-bottom: 15px;
+}
+.projects table {
+  min-width: 1000px;
+  border-spacing: 0;
+  font-size: 14px;
+  cursor: default;
+}
+.projects table thead {
+  background-color: #eee;
+  font-weight: bold;
+  text-align: left;
+}
+.projects tr td {
+  padding: 15px;
+  border: 1px solid #eee;
+  margin: 0;
+}
+.projects table .stat span {
+  background-color: var(--green);
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 13px;
+  color: white;
+}
+.projects table .p span {
+  background-color: var(--orange);
+}
+.projects table .in span {
+  background-color: var(--blue);
+}
+.projects table .r span {
+  background-color: var(--red);
+}
+.projects table tbody .a {
+  margin-left: -20px;
+}
+.projects table tr:hover {
+  background-color: #f1f5f9;
+}
+/*=================================================== end Dashboard =========================================*/
+/*===========================================================================================================*/
+/* start setting page */
+/* site-control */
+.site-control > .line {
+  margin: 30px 0;
+}
+.site-control > textarea {
+  resize: none;
+  padding: 20px;
+  border-color: #ddd;
+}
+/*=================================================== end site-control =========================================*/
+/* start general-info */
+.general-info > div input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  margin-top: 10px;
+}
+.general-info > div label {
+  padding-left: 5px;
+}
+.general-info .mail {
+  align-items: flex-end;
+}
+.general-info a {
+  margin: 0 0 10px 10px;
+  font-size: 15px;
+  font-weight: 600;
+}
+.general-info .email-input {
+  cursor: not-allowed;
+}
+/*=================================================== end general-info =========================================*/
+/* start security-info */
+.security-info > p {
+  margin-bottom: 35px;
+}
+#security-checkbox {
+  display: none;
+}
+#security-checkbox:checked + .ball {
+  transform: translate(29px, -50%);
+}
+#security-checkbox:checked + .ball .fa-check {
+  color: white;
+}
+.security-info > .line:nth-child(4) {
+  padding: 30px 0;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+.security-info > .line:nth-child(3) > a {
+  background-color: var(--blue);
+  color: white;
+  font-weight: bold;
+  transition: var(--main-transition);
+}
+.security-info > .line:nth-child(3) > a:hover {
+  background-color: var(--blue-alt);
+}
+.security-info > .line:nth-child(5) > a {
+  color: #000;
+  font-weight: bold;
+}
+/*=================================================== end security-info =========================================*/
+/* start social-info */
+.social-info > .line input {
+  background-color: #f6f6f6;
+  border: 1px solid #ddd;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+  padding: 0 10px;
+  font-size: 13px;
+}
+.social-info > .line i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  color: var(--grey);
+  background-color: #f6f6f6;
+  border: 1px solid #ddd;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+}
+.social-info > .line:focus-within i {
+  color: black;
+}
+/*=================================================== end social-info =========================================*/
+/* start widgets-control */
+.widgets-control > p {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+.widgets-control > div > input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+}
+.widgets-control > div > label {
+  font-weight: 600;
+  margin-left: 10px;
+  position: relative;
+  cursor: pointer;
+}
+.widgets-control > div input[type="checkbox"]:checked + label::after {
+  transform: scale(1) rotate(1turn);
+}
+.widgets-control > div > label::before,
+.widgets-control > div > label::after {
+  position: absolute;
+  left: -30px;
+  top: 50%;
+  margin-top: -9px;
+  border-radius: 4px;
+}
+.widgets-control > div > label::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  background: white;
+  border: 2px solid var(--grey);
+}
+.widgets-control > div > label:hover::before {
+  border-color: var(--blue);
+}
+.widgets-control > div > label::after {
+  font-family: var(--fa-style-family-classic);
+  content: "\f00c";
+  background-color: var(--blue);
+  color: white;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  transform: scale(0);
+  transition: 0.3s;
+}
+/*=================================================== end widgets-control =========================================*/
+/* start backup-manager */
+.backup-manager > p {
+  margin: 20px 0 30px;
+}
+/* body */
+.backup-manager > .body {
+  flex-direction: column;
+}
+.backup-manager > .body > div > input[type="radio"] {
+  -webkit-appearance: none;
+  appearance: none;
+}
+.backup-manager > .body > div > label {
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  position: relative;
+  padding-left: 30px;
+}
+.backup-manager > .body > div > label::before,
+.backup-manager > .body > div > label::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+.backup-manager > .body > div > label::before {
+  left: -20px;
+  width: 18px;
+  height: 18px;
+  margin-bottom: -9px;
+  border: 2px solid var(--grey);
+  margin-left: 20px;
+}
+.backup-manager > .body > div > label::after {
+  left: 4px;
+  bottom: 4px;
+  width: 14px;
+  height: 14px;
+  transform: scale(0);
+}
+.backup-manager > .body > div > input[type="radio"]:checked + label::after {
+  background-color: var(--blue);
+  transform: scale(1);
+  position: absolute;
+  top: 4px;
+}
+.backup-manager > .body > div > input[type="radio"]:checked + label::before {
+  border-color: var(--blue);
+}
+/* foot */
+.backup-manager > .foot > div > input[type="radio"] {
+  -webkit-appearance: none;
+  appearance: none;
+}
+.backup-manager > .foot > div {
+  flex: 1;
+  margin: 0 5px;
+}
+.backup-manager > .foot > div > label {
+  cursor: pointer;
+  flex-direction: column;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  font-size: 17px;
+  font-weight: 600;
+}
+.backup-manager > .foot > div > label i {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.backup-manager > .foot > div > input[type="radio"]:checked + label {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+/*=================================================== end Settings =========================================*/
+/*===========================================================================================================*/
+/* start profile page */
+/* start about me */
+.about-me > .left {
+  width: 245px;
+}
+.about-me > .left p {
+  font-weight: 600;
+}
+.about-me > .left img {
+  width: 120px;
+}
+.about-me > .left h2 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+.about-me > .left .prog {
+  display: inline-block;
+  width: 80%;
+  background-color: #ddd;
+  height: 5px;
+  border-radius: 12px;
+}
+.about-me > .left .prog span {
+  display: block;
+  width: 70%;
+  background-color: var(--blue);
+  height: 100%;
+  border-radius: 12px;
+}
+.about-me > .left .stars > i {
+  color: rgb(240, 204, 5);
+  margin-top: 10px;
+}
+.about-me > .right {
+  border-left: 1px solid #eee;
+}
+.about-me > .right .line:not(:last-child) {
+  border-bottom: 1px solid #eee;
+}
+.about-me > .right .line {
+  padding: 0 20px 20px;
+}
+.about-me > .right .line:hover {
+  background-color: #f1f5f9;
+}
+
+#prof-line-1,
+#prof-line-2,
+#prof-line-3,
+#prof-line-4 {
+  display: none;
+}
+
+#prof-line-1:checked + .ball,
+#prof-line-2:checked + .ball,
+#prof-line-3:checked + .ball,
+#prof-line-4:checked + .ball {
+  transform: translate(29px, -50%);
+}
+
+#prof-line-1:checked + .ball .fa-check,
+#prof-line-2:checked + .ball .fa-check,
+#prof-line-3:checked + .ball .fa-check,
+#prof-line-4:checked + .ball .fa-check {
+  color: white;
+}
+/*=================================================== end about-me =========================================*/
+/* start more-info */
+/* start my-skills */
+.more-info {
+  margin: 20px 0;
+  gap: 20px;
+}
+.my-skills {
+  flex-grow: 1;
+}
+.my-skills > .line {
+  padding: 20px 0;
+}
+.my-skills > .line:not(:last-child),
+.latest-activities > .line:not(:last-child) {
+  border-bottom: 1px solid #eee;
+}
+.my-skills > .line span {
+  background: #eee;
+  font-size: 15px;
+  font-weight: 600;
+}
+/* latest activities */
+.latest-activities {
+  flex-grow: 2;
+}
+.latest-activities > .line {
+  padding: 15px 0;
+}
+.latest-activities > .line img {
+  width: 64px;
+  margin-right: 20px;
+}
+.latest-activities > .line h4 {
+  margin-bottom: 10px;
+}
+.latest-activities > .line .date {
+  margin-left: auto;
+  text-align: right;
+}
+/*=================================================== end Profile =========================================*/
+/*===========================================================================================================*/
+/* start Projects page */
+.card h2 {
+  font-size: 19px;
+  font-weight: 600;
+}
+.card p {
+  font-weight: 600;
+}
+.card > span:first-child {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+}
+.card > .line {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin: 10px 0;
+  padding: 30px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+.card > .line span {
+  font-weight: 600;
+  background-color: #ddd;
+  width: fit-content;
+}
+.card > .images {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+.card > .images > img {
+  position: relative;
+  cursor: pointer;
+  width: 40px;
+  border-radius: 50%;
+  border: 3px solid white;
+}
+.card > .images > img:hover {
+  z-index: 10;
+}
+.card > .images > img:not(:first-child) {
+  margin-left: -20px;
+}
+.card > .foot .prog {
+  width: 200px;
+  height: 7px;
+  background: #ddd;
+  border-radius: 12px;
+}
+.card > .foot .prog span {
+  display: block;
+  width: 180px;
+  height: 100%;
+  background-color: var(--red);
+  border-radius: 12px;
+}
+.card:nth-child(2) > .foot .prog span {
+  background: var(--green);
+  width: 130px;
+}
+.card:nth-child(3) > .foot .prog span {
+  background: var(--blue);
+  width: 180px;
+}
+.card:nth-child(4) > .foot .prog span {
+  background: var(--green);
+  width: 170px;
+}
+.card:nth-child(5) > .foot .prog span {
+  background: var(--red);
+  width: 140px;
+}
+.card:nth-child(6) > .foot .prog span {
+  background: var(--blue);
+  width: 190px;
+}
+.card:nth-child(7) > .foot .prog span {
+  background: var(--green);
+  width: 175px;
+}
+.card:nth-child(8) > .foot .prog span {
+  background: var(--red);
+  width: 145px;
+}
+.card:nth-child(9) > .foot .prog span {
+  background: var(--blue-alt);
+  width: 185px;
+}
+/*=================================================== end Projects =========================================*/
+/*===========================================================================================================*/
+/* start Courses page */
+.card > img:first-child {
+  width: 100%;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
+.card > img:nth-child(2) {
+  width: 64px;
+  border: 3px solid white;
+  border-radius: 50%;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+.card > h3 {
+  padding: 20px 0 0 20px;
+}
+.card > p {
+  line-height: 1.7;
+}
+.card > .more {
+  margin-top: 10px;
+  border-top: 1px solid #eee;
+}
+.card > .more span:nth-child(2) {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 600;
+  background-color: var(--blue);
+  color: white;
+  cursor: pointer;
+  transition: var(--main-transition);
+}
+.card > .more span:nth-child(2):hover {
+  background-color: var(--blue-alt);
+  border-radius: 0;
+}
+/*=================================================== end Courses =========================================*/
+/*===========================================================================================================*/
+/* start Friends page */
+.friend > i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  background-color: #eee;
+  color: var(--grey);
+  position: absolute;
+  cursor: pointer;
+}
+.friend > i:nth-child(1) {
+  top: 15px;
+  left: 15px;
+}
+.friend > i:nth-child(2) {
+  top: 15px;
+  left: 50px;
+}
+.friend > i:hover {
+  color: white;
+  background-color: var(--blue);
+}
+.friend > .info img {
+  width: 100px;
+  border-radius: 50%;
+  margin-top: 20px;
+}
+.friend > .info h3 {
+  font-size: 17px;
+  margin: 10px 0;
+}
+
+.friend > .more-info {
+  padding: 10px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+.friend > .more-info .about div {
+  margin: 10px 0;
+}
+.friend > .more-info .about div i {
+  font-size: 14px;
+}
+.friend > .more-info .about div span {
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: 10px;
+}
+.friend > .more-info .about div:nth-child(2) span {
+  margin-left: 5px;
+}
+.friend > .more-info > span {
+  font-size: 40px;
+  letter-spacing: 5px;
+  color: var(--orange);
+  opacity: 0.2;
+  font-weight: bold;
+}
+.friend > .opt a {
+  color: white;
+  opacity: 1;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 5px;
+}
+.friend > .opt a:nth-child(1) {
+  background-color: var(--blue);
+}
+.friend > .opt a:nth-child(2) {
+  background-color: var(--red);
+}
+/*=================================================== end Friends =========================================*/
+/*===========================================================================================================*/
+/* start Files page */
+.all-files {
+  margin: 0 20px 20px;
+  flex-direction: row-reverse;
+  gap: 20px;
+}
+.all-files > .left {
+  min-width: 260px;
+  height: fit-content;
+}
+.all-files > .left .line {
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 7px;
+}
+.all-files > .left .line i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+}
+.all-files > .left .line:nth-child(2) i {
+  color: var(--blue);
+  background-color: rgb(0 117 255 / 20%);
+}
+.all-files > .left .line:nth-child(3) i {
+  color: var(--green);
+  background-color: rgb(34 197 94 / 20%);
+}
+.all-files > .left .line:nth-child(4) i {
+  color: var(--red);
+  background-color: rgb(244 67 54 / 20%);
+}
+.all-files > .left .line:nth-child(5) i {
+  color: var(--orange);
+  background-color: rgb(245 158 11 / 20%);
+}
+
+.all-files > .left .line .info {
+  margin-left: 10px;
+}
+.all-files > .left .line .info h4 {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+.all-files > .left .line > span {
+  margin-left: auto;
+}
+.all-files > .left a {
+  display: block;
+  width: fit-content;
+  margin: 15px auto 0;
+  padding: 10px 15px;
+  transition: 0.3s;
+  color: white;
+  background-color: var(--blue);
+}
+.all-files > .left a:hover i {
+  animation: arrow 0.5s ease-out infinite alternate;
+}
+@keyframes arrow {
+  from {
+    transform: translateY(1px);
+  }
+  to {
+    transform: translateY(-3px);
+  }
+}
+.all-files > .left i {
+  margin-right: 20px;
+}
+/* right */
+.all-files > .right .file {
+  text-align: center;
+}
+.all-files > .right .file:hover img {
+  transform: rotate(10deg);
+}
+.all-files > .right i {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.all-files > .right img {
+  width: 64px;
+  margin: 20px 0;
+  transition: var(--main-transition);
+}
+.all-files > .right h3 {
+  font-size: 15px;
+  font-weight: 500;
+}
+.all-files > .right .file > p {
+  text-align: left;
+}
+.all-files > .right .file .info {
+  border-top: 1px solid #ddd;
+}
+.all-files > .right .file .info .fs-14 {
+  font-size: 13px;
+}
+/*=================================================== end Files =========================================*/
+/*===========================================================================================================*/
+/* start Plans page */
+.plans {
+  margin: 0 20px 20px;
+}
+.plans > .plan .head {
+  background-color: var(--green);
+  padding: 30px;
+  text-align: center;
+  color: white;
+  border: 3px solid white;
+  outline: 3px solid var(--green);
+  margin-bottom: 30px;
+}
+.plans > .plan:nth-child(2) .head {
+  background-color: var(--blue);
+  outline: 3px solid var(--blue);
+}
+.plans > .plan:nth-child(3) .head {
+  background-color: var(--orange);
+  outline: 3px solid var(--orange);
+}
+.plans > .plan .head h2 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+.plans > .plan .head span {
+  font-size: 45px;
+}
+.plans > .plan ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+.plans > .plan ul li i {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+}
+.plans > .plan ul li .fa-check {
+  color: var(--green);
+}
+.plans > .plan ul li .fa-xmark {
+  color: var(--red);
+}
+.plans > .plan ul li .fa-circle-info {
+  opacity: 0.5;
+}
+.plans > .plan a {
+  display: block;
+  width: fit-content;
+  margin: 5px 0;
+  margin-left: auto;
+  background-color: var(--green);
+  font-size: 15px;
+  opacity: 1;
+  color: white;
+  font-weight: 600;
+  padding: 7px 15px;
+}
+.plans > .plan:nth-child(2) a {
+  background-color: var(--blue);
+}
+.plans > .plan > p {
+  opacity: 0.5;
+  font-weight: 600;
+  margin: 5px 0;
+}
+/*=================================================== end plans =========================================*/
+/*==============================================end template four========================================*/
